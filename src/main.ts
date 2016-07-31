@@ -46,6 +46,7 @@ const getDetailInfo = (data: [string, Object]): Object => {
   const $ = cheerio.load(data[0]);
   const header = $('div#offerHeader');
   const contrat = header.children('.offerHeaderBloc').children('.typeContrat');
+  const duree = header.children('.offerHeaderBloc').next().children().next().first();
   const context = header.next().next();
   const mission = context.next().next();
   const profil = mission.next().next();
@@ -55,7 +56,7 @@ const getDetailInfo = (data: [string, Object]): Object => {
   return Object.assign(
     data[1], 
     {
-      header: header.text(), 
+      duree: duree.text(),
       contrat: contrat.text(),
       context: context.text(),
       mission: mission.text(),
