@@ -1,6 +1,10 @@
 var Rx = require('rxjs/Rx');
 var request = require('request');
 var cheerio = require('cheerio');
+var io = require('socket.io')();
+var port = process.env.PORTCANALPLUS || 3000;
+
+io.listen(port);
 
 const baseUrl = 'http://www.vousmeritezcanalplus.com';
 
@@ -75,4 +79,4 @@ const posteStream  =
     ))
     .map(getDetailInfo);
 
-posteStream.subscribe((data: Poste) => console.log(data));
+posteStream.subscribe((data: Poste) => io.emit('poste', Object.assign(data, {entreprise: 'canalplus'})));
