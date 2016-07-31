@@ -2,7 +2,9 @@ var Rx = require('rxjs/Rx');
 var request = require('request');
 var cheerio = require('cheerio');
 var io = require('socket.io')();
-var port = process.env.PORTCANALPLUS || 3000;
+const port = process.env.PORT || 3000;
+const timer = process.env.TIMER || 10800000;
+const nbPage = process.env.NBPAGE || 3;
 
 io.listen(port);
 
@@ -66,9 +68,10 @@ const getDetailInfo = (data: [string, Object]): Object => {
 
 const posteStream  = 
   Rx.Observable
-    .interval(10000)
+    .interval(timer)
     .startWith(0)
-    .flatMap(_ => Rx.Observable.from(['', '?page=2', '?page=3']))
+    .concatMap(_ => Rx.Observable.range(0, nbPage))
+    .flatMap(nb => nb !== 0 ? Rx.Observable.of(`?page=${nb+1}`) : Rx.Observable.of(''))
     .flatMap(nbPage => Rx.Observable.fromPromise(getHtml(`${baseUrl}/offres-d-emploi.html${nbPage}`)))
     .flatMap(getBasicInfo)
     .flatMap(poste => (
