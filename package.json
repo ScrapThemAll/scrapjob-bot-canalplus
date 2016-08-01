@@ -1,16 +1,20 @@
 {
-  "name": "bot",
+  "name": "bot-canalplus",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple bot that scrap Canal+ job board periodically.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./dist/main.js",
     "build": "tsc --allowSyntheticDefaultImports --watch"
   },
-  "keywords": [],
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/ScrapThemAll/scrapjob-bot-canalplus"
+  },
+  "keywords": ["bot", "canalplus"],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "dependencies": {
     "cheerio": "^0.20.0",
     "express": "^4.14.0",
