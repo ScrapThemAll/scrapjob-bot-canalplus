@@ -6,6 +6,10 @@ A simple bot that scrap Canal+ job board periodically.
 
 Install Typescript first :
 
+    npm install -g typescript
+
+Then install typings :
+
     npm install typings -g
     typings install
 
