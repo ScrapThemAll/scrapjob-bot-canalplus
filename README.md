@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/badge/license-GPLv3-green.svg?style=flat-square)](https://raw.githubusercontent.com/ScrapThemAll/scrapjob-bot-canalplus/master/README.md)
+
 # scrapjob-bot-canalplus
 
 A simple bot that scrap Canal+ job board periodically.
