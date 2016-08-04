@@ -13,14 +13,14 @@ Install Typescript first :
 Then install typings :
 
     npm install typings -g
-    typings install
-
 
 ## Install & Build
 
 Clone the repository and run the bot :
 
     git clone https://github.com/ScrapThemAll/scrapjob-bot-canalplus.git
+    npm install
+    typings install
     npm run build
     npm start
 
